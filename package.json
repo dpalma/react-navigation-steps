@@ -1,0 +1,28 @@
+{
+  "name": "react-navigation-wizard",
+  "version": "1.0.0",
+  "description": "Wizard component implemented with react-navigation",
+  "main": "lib/module/index.js",
+  "module": "lib/module/index.js",
+  "scripts": {
+    "prepare": "bob build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "peerDependencies": {
+    "@react-navigation/native": "^6.0.12",
+    "react-native": "^0.68.2"
+  },
+  "dependencies": {
+    "react-native-builder-bob": "^0.18.3"
+  },
+  "react-native-builder-bob": {
+    "source": "src",
+    "output": "lib",
+    "targets": [
+      "module"
+    ]
+  }
+}
