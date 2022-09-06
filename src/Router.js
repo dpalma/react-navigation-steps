@@ -41,7 +41,7 @@ const Router = options => {
             },
             lastStep() {
                 return {
-                    type: 'FIRST_STEP'
+                    type: 'LAST_STEP'
                 };
             },
             nextStep() {
