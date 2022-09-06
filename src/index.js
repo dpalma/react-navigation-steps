@@ -17,6 +17,8 @@ const Wizard = ({
     children,
     screenOptions,
     contentStyle,
+    renderButtonBar,
+    renderIndicator
 }) => {
     const {
         state,
@@ -28,16 +30,25 @@ const Wizard = ({
         screenOptions
     });
 
+    const buttonBar = renderButtonBar ? renderButtonBar({
+        descriptors,
+        navigation,
+        state
+    }) : <ButtonBar
+        state={state}
+        descriptors={descriptors}
+        navigation={navigation}
+    />;
+
+    const indicator = renderIndicator ? renderIndicator({
+        numSteps: state.routes.length,
+        currentStep: state.index
+    }) : <ProgressBar percentage={(state.index + 1) / state.routes.length} />;
+
     return (
         <NavigationContent>
-            <ProgressBar
-                percentage={(state.index + 1) / state.routes.length}
-            />
-            <ButtonBar
-                state={state}
-                descriptors={descriptors}
-                navigation={navigation}
-            />
+            {indicator}
+            {buttonBar}
             <View style={contentStyle}>
                 {state.routes.map((route, i) => {
                     return (

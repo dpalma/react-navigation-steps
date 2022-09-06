@@ -2,6 +2,7 @@
   "name": "react-navigation-wizard",
   "version": "1.0.0",
   "description": "Wizard component implemented with react-navigation",
+  "repository": "https://github.com/dpalma/react-navigation-wizard",
   "main": "lib/module/index.js",
   "module": "lib/module/index.js",
   "scripts": {
