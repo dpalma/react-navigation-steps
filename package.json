@@ -27,5 +27,8 @@
     "targets": [
       "module"
     ]
-  }
+  },
+  "files": [
+    "lib/"
+  ]
 }
