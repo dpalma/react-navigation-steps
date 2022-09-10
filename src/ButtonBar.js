@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     }
 });
 
-const ButtonBar = ({state, descriptors, navigation}) => {
+const ButtonBar = ({state, descriptors, previousStepHandler, nextStepHandler}) => {
     const isFirstStep = state.index === 0;
     const isLastStep = state.index === state.routes.length - 1;
 
@@ -36,17 +36,7 @@ const ButtonBar = ({state, descriptors, navigation}) => {
             <Button
                 disabled={isFirstStep}
                 title='&nbsp; < &nbsp;'
-                onPress={() => {
-                    const event = navigation.emit({
-                        type: 'prevPress',
-                        target: route.key,
-                        canPreventDefault: true,
-                    });
-
-                    if (!event.defaultPrevented) {
-                        navigation.prevStep();
-                    }
-                }}
+                onPress={previousStepHandler}
             />
             <Text
                 style={styles.title}
@@ -56,17 +46,7 @@ const ButtonBar = ({state, descriptors, navigation}) => {
             <Button
                 disabled={isLastStep}
                 title='&nbsp; > &nbsp;'
-                onPress={() => {
-                    const event = navigation.emit({
-                        type: 'nextPress',
-                        target: route.key,
-                        canPreventDefault: true,
-                    });
-
-                    if (!event.defaultPrevented) {
-                        navigation.nextStep();
-                    }
-                }}
+                onPress={nextStepHandler}
             />
         </View>
     )

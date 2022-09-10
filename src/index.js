@@ -40,14 +40,44 @@ const Wizard = ({
         screenOptions
     });
 
+    const currentRoute = state.routes[state.index];
+
+    const previousStepHandler = () => {
+        const event = navigation.emit({
+            type: 'prevPress',
+            target: currentRoute.key,
+            canPreventDefault: true,
+        });
+
+        if (!event.defaultPrevented) {
+            navigation.prevStep();
+        }
+    }
+
+    const nextStepHandler = () => {
+        const event = navigation.emit({
+            type: 'nextPress',
+            target: currentRoute.key,
+            canPreventDefault: true,
+        });
+
+        if (!event.defaultPrevented) {
+            navigation.nextStep();
+        }
+    }
+
     const buttonBar = renderButtonBar ? renderButtonBar({
         descriptors,
         navigation,
-        state
+        state,
+        previousStepHandler,
+        nextStepHandler
     }) : <ButtonBar
         state={state}
         descriptors={descriptors}
         navigation={navigation}
+        previousStepHandler={previousStepHandler}
+        nextStepHandler={nextStepHandler}
     />;
 
     const indicator = renderIndicator ? renderIndicator({
