@@ -1,6 +1,7 @@
 import React from 'react';
 
 import {
+    StyleSheet,
     View
 } from 'react-native';
 
@@ -12,6 +13,15 @@ import {
 import ButtonBar from './ButtonBar';
 import ProgressBar from './ProgressBar';
 import Router from './Router';
+
+const stepStyles = StyleSheet.create({
+    current: {
+        display: 'flex'
+    },
+    inactive: {
+        display: 'none'
+    }
+})
 
 const Wizard = ({
     children,
@@ -55,7 +65,7 @@ const Wizard = ({
                         <View
                             key={route.key}
                             style={[
-                                { display: i === state.index ? 'flex' : 'none' }
+                                i === state.index ? stepStyles.current : stepStyles.inactive
                             ]}
                         >
                             {descriptors[route.key].render()}
