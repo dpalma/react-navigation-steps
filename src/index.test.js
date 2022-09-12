@@ -13,7 +13,7 @@ const Step = ({route}) => {
 test('prev button is disabled at first step', async () => {
     const Wizard = createWizard();
 
-    const { findByText } = render(
+    const { getByText, findByText } = render(
         <NavigationContainer>
             <Wizard.Navigator>
                 <Wizard.Screen name="A" component={Step} />
@@ -23,7 +23,7 @@ test('prev button is disabled at first step', async () => {
     );
 
     const prevButton = await findByText('<');
-    const nextButton = await findByText('>');
+    const nextButton = await getByText('>');
 
     expect(prevButton).toBeDisabled();
 
