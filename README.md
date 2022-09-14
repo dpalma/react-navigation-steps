@@ -16,6 +16,24 @@ $ npm install react-navigation-wizard
 |renderIndicator|A function that renders a progress indicator using the current step and the total number of steps.|No|
 
 
+## Events
+
+### prevPress | nextPress
+
+These events are fired before navigating to the previous or next screen.
+
+The default action can be cancelled by calling `event.preventDefault()`. This will force the wizard to remain on the current step.
+
+#### Example
+```javascript
+React.useEffect(() => {
+    return navigation.addListener('nextPress', event => {
+        event.preventDefault();
+    });
+}, [navigation]);
+```
+
+
 ## Usage
 
 ### Basics
