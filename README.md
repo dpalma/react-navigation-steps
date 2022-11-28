@@ -1,11 +1,11 @@
-# React Navigation Wizard
+# React Navigation Steps
 
-A Wizard component for React Native projects implemented as a custom navigator based on [react-navigation](https://reactnavigation.org/).
+A [react-navigation](https://reactnavigation.org/) custom navigator that can be used to implement a step-by-step wizard component.
 
 ## Installation
 
 ```shell
-$ npm install react-navigation-wizard
+$ npm install react-navigation-steps
 ```
 
 ## Properties
@@ -39,7 +39,7 @@ React.useEffect(() => {
 ### Basics
 
 ```javascript
-import { createWizard } from 'react-navigation-wizard';
+import { createWizard } from 'react-navigation-steps';
 
 const Wizard = createWizard();
 
@@ -58,7 +58,7 @@ render() {
 The default button bar emits events nextPress and prevPress when the next and previous step buttons are pressed. A wizard step may listen for these events by registering an event listener as shown below. By calling `preventDefault` on the event object the step can prevent the wizard from proceeding to the next or previous step. The `navigation` object will have wizard-specific methods `nextStep`, `prevStep`, `firstStep`, and `lastStep` for moving through the steps under the app's control.
 
 ```javascript
-import { createWizard } from 'react-navigation-wizard';
+import { createWizard } from 'react-navigation-steps';
 
 const Wizard = createWizard();
 

@@ -1,8 +1,8 @@
 {
-  "name": "react-navigation-wizard",
+  "name": "react-navigation-steps",
   "version": "1.0.0",
-  "description": "Wizard component implemented with react-navigation",
-  "repository": "https://github.com/dpalma/react-navigation-wizard",
+  "description": "Custom step-by-step navigator for react-navigation",
+  "repository": "https://github.com/dpalma/react-navigation-steps",
   "main": "lib/module/index.js",
   "module": "lib/module/index.js",
   "scripts": {
