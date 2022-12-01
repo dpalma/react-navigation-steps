@@ -23,7 +23,7 @@ const stepStyles = StyleSheet.create({
     }
 })
 
-const Wizard = ({
+const Steps = ({
     children,
     screenOptions,
     contentStyle,
@@ -107,4 +107,4 @@ const Wizard = ({
   );
 }
 
-export const createWizard = createNavigatorFactory(Wizard);
+export const createSteps = createNavigatorFactory(Steps);

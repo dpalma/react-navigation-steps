@@ -39,28 +39,28 @@ React.useEffect(() => {
 ### Basics
 
 ```javascript
-import { createWizard } from 'react-navigation-steps';
+import { createSteps } from 'react-navigation-steps';
 
-const Wizard = createWizard();
+const Steps = createSteps();
 
 render() {
-    <Wizard.Navigator>
-        <Wizard.Screen component={StepOne} name='Step1'></Wizard.Screen>
-        <Wizard.Screen component={StepTwo} name='Step2'></Wizard.Screen>
+    <Steps.Navigator>
+        <Steps.Screen component={StepOne} name='Step1'></Steps.Screen>
+        <Steps.Screen component={StepTwo} name='Step2'></Steps.Screen>
         ...
-        <Wizard.Screen component={StepN} name='StepN'></Wizard.Screen>
-    </Wizard.Navigator>
+        <Steps.Screen component={StepN} name='StepN'></Steps.Screen>
+    </Steps.Navigator>
 }
 ```
 
 ### Controlling flow through steps
 
-The default button bar emits events nextPress and prevPress when the next and previous step buttons are pressed. A wizard step may listen for these events by registering an event listener as shown below. By calling `preventDefault` on the event object the step can prevent the wizard from proceeding to the next or previous step. The `navigation` object will have wizard-specific methods `nextStep`, `prevStep`, `firstStep`, and `lastStep` for moving through the steps under the app's control.
+The default button bar emits events nextPress and prevPress when the next and previous step buttons are pressed. A step may listen for these events by registering an event listener as shown below. By calling `preventDefault` on the event object the step can prevent the wizard from proceeding to the next or previous step. The `navigation` object will have methods `nextStep`, `prevStep`, `firstStep`, and `lastStep` for moving through the steps under the app's control.
 
 ```javascript
-import { createWizard } from 'react-navigation-steps';
+import { createSteps } from 'react-navigation-steps';
 
-const Wizard = createWizard();
+const Steps = createSteps();
 
 const StepOne = ({navigation}) => {
 
@@ -77,11 +77,11 @@ const StepOne = ({navigation}) => {
 };
 
 render() {
-    <Wizard.Navigator>
-        <Wizard.Screen component={StepOne} name='Step1'></Wizard.Screen>
-        <Wizard.Screen component={StepTwo} name='Step2'></Wizard.Screen>
+    <Steps.Navigator>
+        <Steps.Screen component={StepOne} name='Step1'></Steps.Screen>
+        <Steps.Screen component={StepTwo} name='Step2'></Steps.Screen>
         ...
-        <Wizard.Screen component={StepN} name='StepN'></Wizard.Screen>
-    </Wizard.Navigator>
+        <Steps.Screen component={StepN} name='StepN'></Steps.Screen>
+    </Steps.Navigator>
 }
 ```

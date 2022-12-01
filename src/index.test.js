@@ -4,21 +4,21 @@ import { NavigationContainer } from '@react-navigation/native';
 import { fireEvent, render } from '@testing-library/react-native';
 import { Text, View } from 'react-native';
 
-import { createWizard } from '.';
+import { createSteps } from '.';
 
 const Step = ({route}) => {
     return <View><Text>Step {route.name}</Text></View>
 }
 
 test('prev button is disabled at first step', async () => {
-    const Wizard = createWizard();
+    const Steps = createSteps();
 
     const { getByText, findByText } = render(
         <NavigationContainer>
-            <Wizard.Navigator>
-                <Wizard.Screen name="A" component={Step} />
-                <Wizard.Screen name="B" component={Step} />
-            </Wizard.Navigator>
+            <Steps.Navigator>
+                <Steps.Screen name="A" component={Step} />
+                <Steps.Screen name="B" component={Step} />
+            </Steps.Navigator>
         </NavigationContainer>
     );
 
@@ -33,14 +33,14 @@ test('prev button is disabled at first step', async () => {
 });
 
 test('next button is disabled at last step', async () => {
-    const Wizard = createWizard();
+    const Steps = createSteps();
 
     const { findByText } = render(
         <NavigationContainer>
-            <Wizard.Navigator>
-                <Wizard.Screen name="A" component={Step} />
-                <Wizard.Screen name="B" component={Step} />
-            </Wizard.Navigator>
+            <Steps.Navigator>
+                <Steps.Screen name="A" component={Step} />
+                <Steps.Screen name="B" component={Step} />
+            </Steps.Navigator>
         </NavigationContainer>
     );
 

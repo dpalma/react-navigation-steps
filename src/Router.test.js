@@ -1,7 +1,7 @@
 import Router from './Router';
 
 const defaultTestState = Object.freeze({
-    type: 'wizard',
+    type: 'steps',
     key: 'root',
     index: 0,
     routeNames: ['A', 'B', 'C'],
