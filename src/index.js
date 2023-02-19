@@ -16,7 +16,8 @@ import Router from './Router';
 
 const stepStyles = StyleSheet.create({
     current: {
-        display: 'flex'
+        display: 'flex',
+        flex: 1
     },
     inactive: {
         display: 'none'
@@ -40,12 +41,10 @@ const Steps = ({
         screenOptions
     });
 
-    const currentRoute = state.routes[state.index];
-
     const previousStepHandler = () => {
         const event = navigation.emit({
             type: 'prevPress',
-            target: currentRoute.key,
+            target: state.routes[state.index].key,
             canPreventDefault: true,
         });
 
@@ -57,7 +56,7 @@ const Steps = ({
     const nextStepHandler = () => {
         const event = navigation.emit({
             type: 'nextPress',
-            target: currentRoute.key,
+            target: state.routes[state.index].key,
             canPreventDefault: true,
         });
 

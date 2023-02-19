@@ -1,6 +1,6 @@
 {
   "name": "react-navigation-steps",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Custom step-by-step navigator for react-navigation",
   "repository": "https://github.com/dpalma/react-navigation-steps",
   "main": "lib/module/index.js",
