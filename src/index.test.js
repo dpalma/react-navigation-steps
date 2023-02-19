@@ -2,12 +2,12 @@ import '@testing-library/jest-native/extend-expect';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { fireEvent, render } from '@testing-library/react-native';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
 
 import { createSteps } from '.';
 
 const Step = ({route}) => {
-    return <View><Text>Step {route.name}</Text></View>
+    return <View>{route.name}</View>
 }
 
 test('prev button is disabled at first step', async () => {
@@ -52,4 +52,38 @@ test('next button is disabled at last step', async () => {
     fireEvent(nextButton, 'press');
 
     expect(nextButton).toBeDisabled();
+})
+
+test('calls renderIndicator function if given', async () => {
+    const Steps = createSteps();
+
+    const renderIndicator = jest.fn();
+
+    render(
+        <NavigationContainer>
+            <Steps.Navigator renderIndicator={renderIndicator}>
+                <Steps.Screen name="A" component={Step} />
+                <Steps.Screen name="B" component={Step} />
+            </Steps.Navigator>
+        </NavigationContainer>
+    );
+
+    expect(renderIndicator).toBeCalledWith({currentStep: 0, numSteps: 2});
+})
+
+test('calls renderButtonBar function if given', async () => {
+    const Steps = createSteps();
+
+    const renderButtonBar = jest.fn();
+
+    render(
+        <NavigationContainer>
+            <Steps.Navigator renderButtonBar={renderButtonBar}>
+                <Steps.Screen name="A" component={Step} />
+                <Steps.Screen name="B" component={Step} />
+            </Steps.Navigator>
+        </NavigationContainer>
+    );
+
+    expect(renderButtonBar).toBeCalled();
 })
